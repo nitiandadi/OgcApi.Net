@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GeoPulse · 地理空间数据可视化平台</title>
+    <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@3.6.0/dist/maplibre-gl.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+    <div class="nebula"></div>
+    <div class="orb orb-one"></div>
+    <div class="orb orb-two"></div>
+
+    <header class="hero">
+        <div class="hero-content">
+            <span class="badge">GeoPulse</span>
+            <h1>地理空间智慧引擎</h1>
+            <p>融合热力感知、趋势洞察与沉浸式 3D 视图，用炫酷的方式感知城市脉搏、能源流动与交通温度。</p>
+            <div class="hero-actions">
+                <a class="action primary" href="#map-section">立即探索</a>
+                <a class="action secondary" href="#insights">查看洞察</a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="globe">
+                <div class="globe-inner"></div>
+                <div class="globe-ring"></div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="highlights" class="highlights">
+            <article class="highlight-card">
+                <h3>实时热力指数</h3>
+                <p>融合多源传感器数据，以炫彩粒子描绘热点集群。</p>
+                <div class="metric" id="peak-value">--</div>
+                <span class="metric-label">当前峰值指数</span>
+            </article>
+            <article class="highlight-card">
+                <h3>脉冲增长率</h3>
+                <p>智能计算趋势曲线，捕捉区域增长动能。</p>
+                <div class="metric" id="growth-rate">--</div>
+                <span class="metric-label">较昨日变化</span>
+            </article>
+            <article class="highlight-card">
+                <h3>空间覆盖率</h3>
+                <p>多尺度可视分析，一键切换重点区域。</p>
+                <div class="metric" id="coverage">--</div>
+                <span class="metric-label">活跃区域占比</span>
+            </article>
+        </section>
+
+        <section id="map-section" class="map-section">
+            <div class="section-header">
+                <div>
+                    <h2>沉浸式地理空间可视化</h2>
+                    <p>三层叠加：炫彩热力场、粒子高亮图层、动态统计面板。</p>
+                </div>
+                <div class="controls">
+                    <label class="toggle">
+                        <input id="heat-toggle" type="checkbox" checked>
+                        <span>显示热力</span>
+                    </label>
+                    <label class="toggle">
+                        <input id="pulse-toggle" type="checkbox" checked>
+                        <span>显示脉冲点</span>
+                    </label>
+                    <label class="toggle">
+                        <input id="route-toggle" type="checkbox" checked>
+                        <span>显示流动轨迹</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="map-wrapper">
+                <div id="map"></div>
+                <div class="map-overlay glass">
+                    <div class="overlay-row">
+                        <div class="overlay-card">
+                            <span class="label">选择时间片</span>
+                            <input id="time-slider" type="range" min="0" max="0" value="0">
+                            <div class="time-value" id="time-label">--</div>
+                        </div>
+                        <div class="overlay-card">
+                            <span class="label">热点概览</span>
+                            <ul id="top-list"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="insights" class="insights">
+            <div class="section-header">
+                <div>
+                    <h2>趋势洞察</h2>
+                    <p>智能算法对热点区域进行评分，生成高维度指数与预测曲线。</p>
+                </div>
+            </div>
+            <div class="insights-grid">
+                <div class="chart-card glass">
+                    <h3>多维指数曲线</h3>
+                    <canvas id="trend-chart"></canvas>
+                </div>
+                <div class="chart-card glass">
+                    <h3>区域热力雷达</h3>
+                    <canvas id="radar-chart"></canvas>
+                </div>
+                <div class="story-card glass" id="story-card">
+                    <h3>AI 场景解读</h3>
+                    <p id="story-text">正在生成实时洞察……</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 GeoPulse. Inspired by OGC API 标准，打造下一代地理空间可视化体验。</p>
+    </footer>
+
+    <script src="https://unpkg.com/maplibre-gl@3.6.0/dist/maplibre-gl.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

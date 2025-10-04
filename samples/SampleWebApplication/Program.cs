@@ -49,6 +49,8 @@ app.UseSwaggerUI(swaggerOptions =>
     swaggerOptions.SwaggerEndpoint("ogc/swagger.json", "OGC API");
 });
 
+app.UseStaticFiles();
+
 app.UseRouting();
 app.MapControllers();
 
